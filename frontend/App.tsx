@@ -3,7 +3,6 @@ import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
 import Rooms from './components/Rooms';
 import Scenarios from './components/Scenarios';
-import CppCode from './components/CppCode';
 import { HomeState, TabType, Room, Device } from './types';
 import { Menu } from 'lucide-react';
 import { getAiInsights } from './services/aiService';
@@ -112,7 +111,6 @@ const App: React.FC = () => {
       case 'dashboard': return <Dashboard state={state} setActiveTab={setActiveTab} fetchAiInsights={fetchAiInsights} />;
       case 'rooms': return <Rooms state={state} setState={setState} />;
       case 'scenarios': return <Scenarios state={state} setState={setState} />;
-      case 'cpp-code': return <CppCode />;
       default: return <Dashboard state={state} setActiveTab={setActiveTab} fetchAiInsights={fetchAiInsights} />;
     }
   };

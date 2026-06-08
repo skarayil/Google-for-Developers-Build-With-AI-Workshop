@@ -176,7 +176,6 @@ akilli-ev-otomasyonu/
 │   │   ├── Dashboard.tsx    # Durum özeti + AI asistan
 │   │   ├── Rooms.tsx        # Dinamik oda ve cihaz yönetimi
 │   │   ├── Scenarios.tsx    # Senaryolar + enerji raporu
-│   │   └── CppCode.tsx      # C++ kaynak kodu görüntüleyici
 │   └── services/
 │       └── aiService.ts     # Vertex AI entegrasyonu
 ├── backend/

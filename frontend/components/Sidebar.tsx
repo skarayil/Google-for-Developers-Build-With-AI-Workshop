@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, LayoutGrid, Code, Menu, Zap } from 'lucide-react';
+import { Home, LayoutGrid, Menu, Zap } from 'lucide-react';
 import { TabType } from '../types';
 
 interface SidebarProps {
@@ -14,7 +14,6 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isMobileMenu
     { id: 'dashboard', label: 'Durum Özeti', icon: <Home size={20} /> },
     { id: 'rooms', label: 'Evim (Odalar)', icon: <LayoutGrid size={20} /> },
     { id: 'scenarios', label: 'Senaryolar & Raporlar', icon: <Zap size={20} /> },
-    { id: 'cpp-code', label: 'C++ Kaynak Kodu', icon: <Code size={20} /> },
   ];
 
   return (
@@ -62,13 +61,6 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isMobileMenu
           ))}
         </nav>
 
-        <div className="p-4 border-t border-amber-300 bg-amber-300/20">
-          <div className="bg-amber-100 rounded-xl p-4 border border-amber-300 shadow-sm">
-            <p className="text-xs text-amber-800 leading-relaxed">
-              İstediğiniz C++ konsol uygulaması kodunu <strong className="text-amber-600">C++ Kaynak Kodu</strong> sekmesinde bulabilirsiniz.
-            </p>
-          </div>
-        </div>
       </aside>
     </>
   );

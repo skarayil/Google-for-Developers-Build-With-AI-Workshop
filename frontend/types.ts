@@ -34,7 +34,7 @@ export interface HomeState {
   aiError?: string | null;
 }
 
-export type TabType = 'dashboard' | 'rooms' | 'scenarios' | 'cpp-code';
+export type TabType = 'dashboard' | 'rooms' | 'scenarios';
 
 export interface AppContextType {
   state: HomeState;
