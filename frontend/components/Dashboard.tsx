@@ -1,6 +1,6 @@
 import React from 'react';
 import { HomeState } from '../types';
-import { Lightbulb, MessageSquare, LayoutGrid, Zap, Loader2, AlertCircle, RefreshCw, Thermostat, Droplets, Wind, Activity } from 'lucide-react';
+import { Lightbulb, MessageSquare, LayoutGrid, Zap, Loader2, AlertCircle, RefreshCw, Thermometer, Droplets, Wind, Activity } from 'lucide-react';
 
 interface DashboardProps {
   state: HomeState;
@@ -165,7 +165,7 @@ const Dashboard: React.FC<DashboardProps> = ({ state, setActiveTab, fetchAiInsig
             <div className="space-y-4">
               <div className="flex items-center justify-between p-3 rounded-2xl bg-slate-900/50 border border-slate-700/30">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-orange-500/20 text-orange-400 rounded-xl"><Thermostat size={18} /></div>
+                  <div className="p-2 bg-orange-500/20 text-orange-400 rounded-xl"><Thermometer size={18} /></div>
                   <span className="text-slate-300 font-medium">Genel Sıcaklık</span>
                 </div>
                 <span className="text-white font-bold">{state.global.boilerTemp}°C</span>
