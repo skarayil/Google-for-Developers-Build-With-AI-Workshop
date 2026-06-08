@@ -21,7 +21,7 @@
 
 <br/>
 
-### 🌐 [Canlı Demo →](https://skarayil.github.io/smart-home)
+### 🌐 [Canlı Demo → smart-home-app](https://skarayil.github.io/Google-for-Developers-Build-With-AI-Workshop/)
 
 <br/>
 
