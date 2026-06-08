@@ -48,7 +48,7 @@ Workshop sürecinde sıfırdan üretim seviyesi bir uygulama oluşturuldu; AI as
 
 **Akıllı Ev Otomasyonu**, evinizin tüm cihazlarını tek bir arayüzden yönetmenizi sağlayan interaktif bir simülasyon platformudur. Uygulama; dinamik oda yapısı, cihaz kontrolü, enerji tüketimi takibi ve Vertex AI (Gemini) tabanlı akıllı asistan bildirimleriyle tam bir IoT deneyimi sunar.
 
-Proje aynı zamanda **Nesne Yönelimli C++ konsol uygulaması** olarak da yazılmıştır — kaynak kod uygulama içinde görüntülenebilir ve kopyalanabilir.
+Proje, profesyonel temalarla tasarlanmış ve çeşitli veri widget'larıyla (Enerji Tüketim Barı, Ev Ortamı Göstergeleri) zenginleştirilmiştir. Ayrıca Google Cloud entegrasyonlarını anlatan özel bir geliştirici sayfasına sahiptir.
 
 ---
 
@@ -86,15 +86,16 @@ Tek tuşla tüm evi bir moda alın:
 | 🌙 **Uyku Modu** | Tüm ışıklar ve panjurlar kapanır |
 | ✈️ **Tatil Modu** | Buzdolabı hariç tüm cihazlar kapanır |
 
-### 🤖 AI Akıllı Asistan
-- **Vertex AI (Gemini 1.5 Flash)** ile enerji ve cihaz durumunu analiz eder
-- Türkçe öneriler ve uyarılar üretir
+### 🤖 AI Akıllı Asistan (Yerel Simülasyon)
+- Akıllı asistan, API anahtarı gerektirmeden arka planda yerel olarak simüle edilir
+- Cihaz durumunu, enerji tüketimini ve ortam sıcaklıklarını analiz ederek Türkçe öneriler ve uyarılar üretir
 - Önemli cihaz değişikliklerinde **otomatik analiz** tetiklenir (15s throttle)
-- Exponential backoff ile **retry mekanizması** ve timeout yönetimi
+- "Asistana Sor" butonu ile saniyeler içinde eviniz için akıllı öngörüler alabilirsiniz
 
-### 💻 C++ Kaynak Kodu Görüntüleyici
-- Workshop için yazılan **tam özellikli C++ konsol uygulaması** görüntülenebilir
-- Kod panelinden tek tıkla kopyalanabilir
+### 💻 Google for Developers Sayfası
+- Google Cloud Platform, Vertex AI, Firebase ve Matter gibi ekosistem teknolojilerini tanıtır
+- Uygulamanın gerçek dünya entegrasyonu için rehber niteliğinde bilgilendirmeler içerir
+- Yeni eklenen dinamik widget'lar ile (Enerji Barı, Ortam Sıcaklığı) ev durumunu görselleştirir
 
 ---
 
@@ -141,23 +142,18 @@ Tek tuşla tüm evi bir moda alın:
 
 ---
 
-## 🤖 AI Entegrasyonu
+## 🤖 AI Asistan (Yerel Simülasyon)
 
-Uygulama, **Vertex AI Gemini 1.5 Flash** modelini şu şekilde kullanır:
+Eski mimaride Vertex AI proxy gerektiren asistan sistemi, artık yerel ortamda herhangi bir backend yapılandırması olmadan **simüle edilerek** çalışmaktadır. Bu sayede sistemi yerelinizde kurduğunuzda asistan kurulum gerektirmeden anında çalışır.
 
 ```typescript
-// Ev durumuna göre prompt oluşturulur
-const prompt = `
-  Aktif cihazlar: ${activeDevices.join(', ')}
-  Anlık tüketim: ${state.energy.currentWatt} W
-  Uyarılar: ${highTempOvens.join(', ')}
-  → 1-3 kısa Türkçe öneri üret (JSON array)
-`;
+// Örnek yerel analiz mantığı
+if (state.energy.currentWatt > 2000) {
+  insights.push("Enerji tüketiminiz yüksek seviyede. İhtiyacınız olmayan yüksek güçlü cihazları kapatabilirsiniz.");
+}
 ```
 
-**Güvenlik:** Tüm Vertex AI istekleri, tarayıcıdan doğrudan değil; Node.js backend üzerindeki proxy aracılığıyla gönderilir. API anahtarı veya kimlik bilgisi hiçbir zaman tarayıcıya açılmaz.
-
-**Otomatik Tetikleme:** Cihaz durumlarında önemli bir değişiklik (açma/kapama) olduğunda AI analizi minimum 15 saniye aralıkla otomatik olarak çalıştırılır.
+Gerçek bir **Vertex AI Gemini** entegrasyonu yapmak isteyen geliştiriciler, projede bulunan `Google for Developers` sekmesindeki yönergeleri izleyerek sisteme GCP entegrasyonu ekleyebilirler. Ortam değişiklikleri, ısı ve tüketim verileri gibi parametreler JSON formatında Gemini'a gönderilerek akıllı sonuçlar alınabilir.
 
 ---
 
@@ -167,10 +163,8 @@ const prompt = `
 akilli-ev-otomasyonu/
 ├── frontend/
 │   ├── App.tsx                          # Ana uygulama, state yönetimi, simülasyon döngüsü
-│   ├── index.tsx                        # Giriş noktası
-│   ├── vertex-ai-proxy-interceptor.js   # fetch & WebSocket yakalayıcı
+│   ├── index.html                       # HTML şablonu
 │   ├── types.ts                         # TypeScript tip tanımları
-│   ├── constants.ts                     # C++ kaynak kodu sabiti
 │   ├── components/
 │   │   ├── Sidebar.tsx      # Navigasyon yan paneli
 │   │   ├── Dashboard.tsx    # Durum özeti + AI asistan
