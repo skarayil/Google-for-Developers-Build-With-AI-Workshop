@@ -21,24 +21,24 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isMobileMenu
     <>
       {isMobileMenuOpen && (
         <div 
-          className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-amber-950/50 backdrop-blur-sm z-40 md:hidden"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
 
       <aside className={`
-        fixed md:static inset-y-0 left-0 z-50 w-72 bg-slate-900 border-r border-slate-800 
+        fixed md:static inset-y-0 left-0 z-50 w-72 bg-amber-200 border-r border-amber-300 
         transform transition-all duration-300 ease-in-out
         ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
         flex flex-col shadow-2xl md:shadow-none
       `}>
-        <div className="p-6 flex items-center gap-4 border-b border-slate-800/60 bg-slate-900/50">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+        <div className="p-6 flex items-center gap-4 border-b border-amber-300 bg-amber-300/30">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
             <Home size={22} className="text-white" />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-white tracking-tight">SmartHome</h1>
-            <p className="text-xs font-medium text-indigo-400">by Google Cloud</p>
+            <h1 className="text-xl font-bold text-amber-900 tracking-tight">SmartHome</h1>
+            <p className="text-xs font-medium text-amber-700">by Google Cloud</p>
           </div>
         </div>
 
@@ -55,19 +55,16 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isMobileMenu
                 className={`
                   w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl transition-all duration-300 font-medium group relative overflow-hidden
                   ${isActive 
-                    ? 'text-white shadow-lg shadow-indigo-500/10' 
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'}
+                    ? 'text-white shadow-lg shadow-amber-500/30' 
+                    : 'text-amber-800 hover:bg-amber-300/50 border border-transparent'}
                 `}
               >
                 {isActive && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-blue-500/20" />
-                )}
-                {isActive && (
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-indigo-500 rounded-r-full shadow-[0_0_10px_rgba(99,102,241,0.5)]" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-500" />
                 )}
                 
                 <div className={`relative z-10 flex items-center gap-3 transition-transform duration-300 ${isActive ? 'translate-x-1' : 'group-hover:translate-x-1'}`}>
-                  <span className={`${isActive ? 'text-indigo-400' : 'text-slate-500 group-hover:text-slate-300'} transition-colors duration-300`}>
+                  <span className={`${isActive ? 'text-white' : 'text-amber-700 group-hover:text-amber-900'} transition-colors duration-300`}>
                     {item.icon}
                   </span>
                   <span>{item.label}</span>
@@ -77,16 +74,16 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isMobileMenu
           })}
         </nav>
 
-        <div className="p-6 border-t border-slate-800/60 bg-gradient-to-b from-slate-900 to-slate-950">
-          <div className="bg-slate-800/50 rounded-2xl p-5 border border-slate-700/50 backdrop-blur-md relative overflow-hidden group hover:border-indigo-500/30 transition-colors duration-300">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-full blur-xl group-hover:bg-blue-500/20 transition-colors duration-500"></div>
+        <div className="p-6 border-t border-amber-300 bg-amber-300/20">
+          <div className="bg-amber-100 rounded-2xl p-5 border border-amber-300 shadow-sm relative overflow-hidden group hover:border-amber-400 transition-colors duration-300">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-full blur-xl group-hover:bg-amber-500/20 transition-colors duration-500"></div>
             <div className="relative z-10 flex items-start gap-3">
-              <div className="p-2 bg-indigo-500/20 rounded-lg text-indigo-400 mt-0.5">
+              <div className="p-2 bg-amber-500/20 rounded-lg text-amber-600 mt-0.5">
                 <Zap size={16} />
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-slate-200 mb-1">Sistem Aktif</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <h4 className="text-sm font-semibold text-amber-900 mb-1">Sistem Aktif</h4>
+                <p className="text-xs text-amber-800 leading-relaxed">
                   Tüm sensörler ve cihazlar senkronize.
                 </p>
               </div>

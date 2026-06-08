@@ -23,34 +23,44 @@
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          colors: {
+            amber: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+              800: '#92400e',
+              900: '#78350f',
+              950: '#451a03',
+            }
           }
         }
       }
     }
   </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-    
     body {
-      background-color: #0f172a; /* slate-900 */
-      color: #f8fafc; /* slate-50 */
-      font-family: 'Inter', sans-serif;
+      background-color: #fef3c7; /* amber-100 */
+      color: #451a03; /* amber-950 */
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
     ::-webkit-scrollbar {
       width: 8px;
       height: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #1e293b; /* slate-800 */
+      background: #fde68a; /* amber-200 */
     }
     ::-webkit-scrollbar-thumb {
-      background: #475569; /* slate-600 */
+      background: #d97706; /* amber-600 */
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #64748b; /* slate-500 */
+      background: #b45309; /* amber-700 */
     }
   </style>
 </head>

@@ -35,21 +35,21 @@ const GoogleDevelopers: React.FC = () => {
 
   return (
     <div className="space-y-8 animate-in fade-in duration-700">
-      <header className="relative overflow-hidden rounded-3xl bg-slate-900 p-8 sm:p-12 shadow-2xl">
-        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-indigo-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
+      <header className="relative overflow-hidden rounded-3xl bg-amber-900 p-8 sm:p-12 shadow-xl">
+        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-amber-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-orange-500 rounded-full blur-3xl opacity-20"></div>
         
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
           <div className="flex-1 text-center md:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
-              Google <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">for Developers</span>
+              Google <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-300">for Developers</span>
             </h1>
-            <p className="text-slate-300 text-lg sm:text-xl max-w-2xl leading-relaxed">
+            <p className="text-amber-100 text-lg sm:text-xl max-w-2xl leading-relaxed">
               Akıllı ev otomasyonunuzu Google'ın güçlü geliştirici araçları ile donatın. Ölçeklenebilir, güvenli ve yapay zeka destekli bir ekosistem kurun.
             </p>
           </div>
           <div className="hidden md:flex p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl">
-            <Code className="w-20 h-20 text-blue-300" strokeWidth={1.5} />
+            <Code className="w-20 h-20 text-amber-200" strokeWidth={1.5} />
           </div>
         </div>
       </header>
@@ -58,7 +58,7 @@ const GoogleDevelopers: React.FC = () => {
         {apis.map((api, idx) => (
           <div 
             key={idx} 
-            className="group relative bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden"
+            className="group relative bg-white rounded-3xl p-6 border border-amber-200 shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300 overflow-hidden"
           >
             <div className={`absolute top-0 right-0 w-32 h-32 -mr-10 -mt-10 rounded-full ${api.color} opacity-50 transition-transform group-hover:scale-150 duration-500`}></div>
             
@@ -67,10 +67,10 @@ const GoogleDevelopers: React.FC = () => {
                 <div className={`p-3 rounded-2xl ${api.color}`}>
                   {api.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-800">{api.title}</h3>
+                <h3 className="text-xl font-bold text-amber-950">{api.title}</h3>
               </div>
               
-              <p className="text-slate-600 mb-6 flex-1 leading-relaxed">
+              <p className="text-amber-800 mb-6 flex-1 leading-relaxed">
                 {api.description}
               </p>
               
@@ -78,7 +78,7 @@ const GoogleDevelopers: React.FC = () => {
                 href={api.link} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors w-max"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-amber-700 hover:text-amber-900 transition-colors w-max"
               >
                 Daha Fazla Bilgi <ExternalLink size={16} />
               </a>
@@ -87,15 +87,15 @@ const GoogleDevelopers: React.FC = () => {
         ))}
       </div>
 
-      <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-3xl p-8 border border-indigo-100">
+      <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-8 border border-amber-200">
         <div className="flex flex-col md:flex-row items-center gap-6">
-          <div className="p-4 bg-white rounded-2xl shadow-sm text-indigo-500">
+          <div className="p-4 bg-white rounded-2xl shadow-sm text-amber-600">
             <Zap size={32} />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-indigo-900 mb-2">Hemen Başlayın</h3>
-            <p className="text-indigo-700">
-              Bu projeyi kendi sisteminizde canlıya almak için <strong>Firebase Hosting</strong> veya <strong>Cloud Run</strong> kullanabilirsiniz. Gemini modelini bağlamak için ise <a href="https://aistudio.google.com" target="_blank" rel="noopener noreferrer" className="font-semibold underline decoration-indigo-300 hover:decoration-indigo-500">Google AI Studio</a> üzerinden bir API anahtarı edinebilirsiniz.
+            <h3 className="text-xl font-bold text-amber-900 mb-2">Hemen Başlayın</h3>
+            <p className="text-amber-800">
+              Bu projeyi kendi sisteminizde canlıya almak için <strong>Firebase Hosting</strong> veya <strong>Cloud Run</strong> kullanabilirsiniz. Gemini modelini bağlamak için ise <a href="https://aistudio.google.com" target="_blank" rel="noopener noreferrer" className="font-semibold underline decoration-amber-500 hover:decoration-amber-600">Google AI Studio</a> üzerinden bir API anahtarı edinebilirsiniz.
             </p>
           </div>
         </div>
