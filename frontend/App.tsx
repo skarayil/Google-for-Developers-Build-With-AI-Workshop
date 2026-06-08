@@ -3,8 +3,9 @@ import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
 import Rooms from './components/Rooms';
 import Scenarios from './components/Scenarios';
+import GoogleDevelopers from './components/GoogleDevelopers';
 import { HomeState, TabType, Room, Device } from './types';
-import { Menu } from 'lucide-react';
+import { Menu, Bell } from 'lucide-react';
 import { getAiInsights } from './services/aiService';
 
 const App: React.FC = () => {
@@ -111,12 +112,13 @@ const App: React.FC = () => {
       case 'dashboard': return <Dashboard state={state} setActiveTab={setActiveTab} fetchAiInsights={fetchAiInsights} />;
       case 'rooms': return <Rooms state={state} setState={setState} />;
       case 'scenarios': return <Scenarios state={state} setState={setState} />;
+      case 'google-developers': return <GoogleDevelopers />;
       default: return <Dashboard state={state} setActiveTab={setActiveTab} fetchAiInsights={fetchAiInsights} />;
     }
   };
 
   return (
-    <div className="flex h-screen bg-amber-100 overflow-hidden selection:bg-amber-500/30 font-sans text-amber-950">
+    <div className="flex h-screen bg-slate-900 text-slate-50 font-sans overflow-hidden selection:bg-indigo-500/30">
       <Sidebar 
         activeTab={activeTab} 
         setActiveTab={setActiveTab} 
@@ -125,20 +127,47 @@ const App: React.FC = () => {
       />
       
       <main className="flex-1 flex flex-col h-full overflow-hidden relative">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-indigo-900/20 to-transparent pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+        
         {/* Mobile Header */}
-        <div className="md:hidden flex items-center justify-between p-4 border-b border-amber-200 bg-amber-100/80 backdrop-blur-md z-10">
-          <h1 className="text-lg font-bold text-amber-700">SmartHome</h1>
+        <div className="md:hidden flex items-center justify-between p-4 border-b border-slate-800 bg-slate-900/80 backdrop-blur-md z-10">
+          <h1 className="text-xl font-bold tracking-tight text-white">SmartHome</h1>
           <button 
             onClick={() => setIsMobileMenuOpen(true)}
-            className="p-2 rounded-lg bg-amber-200 text-amber-800 hover:bg-amber-300"
+            className="p-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
           >
             <Menu size={24} />
           </button>
         </div>
 
+        {/* Top bar for Desktop */}
+        <div className="hidden md:flex items-center justify-end p-6 z-10">
+          <div className="flex items-center gap-4">
+            <button className="relative p-2.5 bg-slate-800 rounded-xl text-slate-400 hover:text-white transition-colors border border-slate-700">
+              <Bell size={20} />
+              {state.assistantMessages.length > 0 && (
+                <span className="absolute top-2 right-2.5 w-2.5 h-2.5 bg-indigo-500 rounded-full border-2 border-slate-800"></span>
+              )}
+            </button>
+            <div className="flex items-center gap-3 pl-4 border-l border-slate-800">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-400 to-blue-500 p-[2px]">
+                <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center text-sm font-bold">
+                  SK
+                </div>
+              </div>
+              <div>
+                <p className="text-sm font-bold text-white leading-tight">Sudenaz K.</p>
+                <p className="text-xs text-slate-400">Yönetici</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Main Content Area */}
-        <div className="flex-1 overflow-y-auto p-4 md:p-8 lg:p-10">
-          <div className="max-w-6xl mx-auto h-full">
+        <div className="flex-1 overflow-y-auto px-4 pb-8 md:px-8 z-10 relative">
+          <div className="max-w-6xl mx-auto h-full pt-4 md:pt-0">
             {renderContent()}
           </div>
         </div>
